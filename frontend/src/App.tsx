@@ -1,25 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+import Home from './screens/HomePage/Home';
+import CityList from './screens/CityList/CityList';
+import CityDetail from './screens/CityDetail/CityDetail';
+import Header from './components/Header';
+import Footer from './components/Footer';
+
+const App: React.FC = () => {
+    return (
+      <Router>
+        <div className="flex flex-col h-screen">
+          <Header />
+          <main className="flex-grow">
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/Cities" element={<CityList />} />
+                <Route path="/Cities/:cityName" element={<CityDetail />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
   );
 }
 
