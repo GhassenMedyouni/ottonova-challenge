@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useState} from "react";
 import CityCard from "../../components/CityCard/CityCard";
 import {City, findAllCities} from "../../services";
 import {Subtitle, Title} from "./CityList.data";
