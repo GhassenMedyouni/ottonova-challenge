@@ -38,6 +38,8 @@ $ npm install
 # development
 $ npm run start
 
+The application will run on http://localhost:3000.
+
 # watch mode
 $ npm run start:dev
 
