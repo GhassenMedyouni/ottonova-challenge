@@ -18,13 +18,15 @@ export class CitiesService {
     }
 
     findAll(query) : City[] {
-        const { page = 1, limit = 10, name = "" } = query;
+        const { page = 1, limit = 3, name = "" } = query;
 
         const filteredCities = this.cities.filter(city => city.name.toLowerCase().includes(name.toLowerCase()));
 
         const startIndex = (page - 1) * limit;
+        const endIndex = Math.min(startIndex + limit, filteredCities.length);
 
-        return filteredCities.slice(startIndex, startIndex + limit);
+
+        return filteredCities.slice(startIndex, endIndex);
     }
 
     findByName(name: string) : City | undefined {
